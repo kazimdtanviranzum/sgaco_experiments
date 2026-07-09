@@ -76,54 +76,6 @@ Because the benchmark instances optimize makespan and do not provide native due 
 d_j = 1.5 × sum of processing times of job j
 ```
 
-## Key figures
-
-### Percentage gap to best-known solution
-
-![Percentage gap to best-known solution](fig_gap.png)
-
-### Convergence on FT10 and TA01
-
-![Convergence curves](fig_conv.png)
-
-### Signed TreeSHAP feature weights
-
-![Signed TreeSHAP weights](fig_weights.png)
-
-## Summary of main results
-
-Average percentage gap to the best-known solution across the ten main instances:
-
-| Method | Mean gap (%) |
-|---|---:|
-| Standard ACO (AS) | 44.37 |
-| MAX-MIN Ant System | 40.83 |
-| Ant Colony System | 47.32 |
-| Tabu search | 28.84 |
-| SHAP-ACO (offline) | 40.65 |
-| SG-ACO (closed loop) | 39.55 |
-
-The Friedman test over 250 BKS-normalized paired blocks rejects equal performance across the six stochastic methods:
-
-```text
-chi-square = 187.71
-p-value    = 1.21e-38
-blocks     = 250
-```
-
-Average Friedman ranks, where lower is better:
-
-| Method | Average rank |
-|---|---:|
-| Tabu search | 2.394 |
-| SG-ACO (closed loop) | 3.180 |
-| SHAP-ACO (offline) | 3.378 |
-| MAX-MIN Ant System | 3.620 |
-| Ant Colony System | 3.888 |
-| Standard ACO (AS) | 4.540 |
-
-These results support the narrower claim that signed explanation-derived guidance improves the ACO family under the tested budget, while tabu search remains the strongest baseline overall on the larger instances.
-
 ## Installation
 
 Python 3.12 is recommended.
@@ -196,46 +148,6 @@ The repository is intended to archive the complete computational record for the 
 - statistical outputs
 - generated figures
 
-For submission, update this section with the final public links:
-
-```text
-GitHub repository: <insert URL>
-Zenodo DOI: <insert DOI>
-```
-
-Suggested data-availability statement:
-
-> The FT06 benchmark instance is publicly available in Beasley’s OR-Library. Larger job-shop instances were generated using the standard Taillard procedure with the fixed random seeds reported in the paper. All experiment code, instance files, per-run results, and statistical outputs are included in this repository and archived with a Zenodo DOI.
-
-## Suggested GitHub upload checklist
-
-Before pushing the repository, confirm that the following are included:
-
-```text
-README.md
-*.py
-*.csv
-*.json
-*.png
-instances/
-curves_*.npz        # optional, needed to regenerate convergence curves exactly
-inst_cache/         # optional, speeds reruns if cached surrogate artifacts are shared
-```
-
-Suggested commands:
-
-```bash
-git init
-git add README.md *.py *.csv *.json *.png instances/
-git commit -m "Add SG-ACO experiment archive"
-git branch -M main
-git remote add origin <your-github-repository-url>
-git push -u origin main
-```
-
-## License
-
-Add the license selected for the project before public release. For academic code releases, common choices are MIT, BSD-3-Clause, or Apache-2.0.
 
 ## Citation
 
@@ -246,7 +158,5 @@ Please cite the associated paper and archived release once the repository is pub
   title  = {SG-ACO Experiments: SHAP-Guided Ant Colony Optimization for Job-Shop Scheduling},
   author = {<insert authors>},
   year   = {<insert year>},
-  doi    = {<insert Zenodo DOI>},
-  url    = {<insert GitHub URL>}
 }
 ```
